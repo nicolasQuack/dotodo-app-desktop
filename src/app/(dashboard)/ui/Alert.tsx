@@ -5,9 +5,9 @@ import { FaSignature } from "react-icons/fa";
 export const AlertExample: FC = function () {
     return (
         <Alert
+      className="opacity-95"
       color="info"
-      rounded={false}
-      withBorderAccent
+      rounded={true}
       onDismiss={console.log}
       additionalContent={
         <React.Fragment>
