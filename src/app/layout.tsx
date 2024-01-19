@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
+import { Flowbite, ThemeModeScript } from "flowbite-react";
 import { Inter } from 'next/font/google'
-import './ui/globals.css'
-import SideNav from './ui/dashboard/sidenav'
+import { type FC, type PropsWithChildren } from "react";
+import { twMerge } from "tailwind-merge";
+import "./globals.css";
+import { flowbiteTheme } from './theme';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,21 +16,17 @@ export const metadata: Metadata = {
   description: 'Do to do right!',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const RootLayout: FC<PropsWithChildren> = function ({children}) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} dark:bg-background-dark`}>
-        <div>
-          <SideNav/>
-        </div>
-        <div>
-          {children}
-        </div>
+    <html lang='en'>
+      <head>
+        <ThemeModeScript />
+      </head>
+      <body>
+        <Flowbite theme={{theme: flowbiteTheme}}>{children}</Flowbite>
       </body>
     </html>
-  )
+    )
 }
+
+export default RootLayout;
