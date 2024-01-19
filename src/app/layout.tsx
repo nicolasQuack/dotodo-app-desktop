@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'DoToDo',
+    default: 'Tarefas',
     template: '%s | DoToDo'
   },
   description: 'Do to do right!',
