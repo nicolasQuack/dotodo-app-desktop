@@ -11,6 +11,9 @@
     "commit": "cz"
   },
   "dependencies": {
+    "flowbite": "^2.2.1",
+    "flowbite-react": "^0.7.2",
+    "grommet-icons": "^4.12.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18"
