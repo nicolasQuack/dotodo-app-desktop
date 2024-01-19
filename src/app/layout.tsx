@@ -20,6 +20,7 @@ const RootLayout: FC<PropsWithChildren> = function ({children}) {
   return (
     <html lang='en'>
       <head>
+        <link rel="shortcut icon" href="/img/flavicon.ico" type="image/x-icon" />
         <ThemeModeScript />
       </head>
       <body>
