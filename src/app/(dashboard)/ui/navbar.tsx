@@ -23,7 +23,7 @@ export default function DashboardNavBar() {
                   src="/img/logo-icon.png"
                   width="24"
                 />
-                <span className={`${pacifico.className} self-center whitespace-nowrap px-3 text-xl font-semibold text-white dark:text-white`}>
+                <span className={`${pacifico.className} self-center whitespace-nowrap px-3 text-xl font-semibold text-white `}>
                 DotoDo
                 </span>
               </Navbar.Brand>
