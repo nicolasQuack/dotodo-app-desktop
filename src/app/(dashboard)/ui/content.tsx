@@ -4,9 +4,9 @@ import { NextPage } from "next"
 import Image from "next/image"
 import type { FC } from "react";
 import React, { useState } from "react";
-import { pacifico } from "@/app/utils/fonts";
-import { AlertExample } from "./Alert";
-import { InputExample } from "./Input";
+import { AlertExample } from "./alert";
+import { InputExample } from "./input";
+import { TableExample } from "./table";
 
 export const HomePageContent: NextPage = function () {
     return (
@@ -15,7 +15,7 @@ export const HomePageContent: NextPage = function () {
                 <AlertExample />
             </section>
             <section>
-                <div>
+                <div className="pb-6">
                     <InputExample />
                     <Image
                         className="pt-5 ml-16 dark:opacity-50 md:block hidden"
@@ -25,6 +25,9 @@ export const HomePageContent: NextPage = function () {
                         width="412"
                     />
                 </div>
+            </section>
+            <section className="h-full">
+                    <TableExample />
             </section>
         </div>
     )
