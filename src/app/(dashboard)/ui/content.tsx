@@ -7,10 +7,11 @@ import React, { useState } from "react";
 import { AlertExample } from "./alert";
 import { InputExample } from "./input";
 import { TableExample } from "./table";
+import { CardExample } from "./cards";
 
 export const HomePageContent: NextPage = function () {
     return (
-        <div className="p-6 pb-96 ">
+        <div className="p-6 h-screen">
             <section className="pb-6">
                 <AlertExample />
             </section>
@@ -18,6 +19,7 @@ export const HomePageContent: NextPage = function () {
                 <div className="pb-6">
                     <InputExample />
                     <Image
+                        loading="lazy"
                         className="pt-5 ml-16 dark:opacity-50 md:block hidden"
                         alt="Dotodo template"
                         height="126"
@@ -26,7 +28,7 @@ export const HomePageContent: NextPage = function () {
                     />
                 </div>
             </section>
-            <section className="h-full">
+            <section className="">
                     <TableExample />
             </section>
         </div>
