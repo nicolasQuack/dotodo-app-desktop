@@ -18,12 +18,12 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<PropsWithChildren> = function ({children}) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning={true} >
       <head>
         <link rel="shortcut icon" href="/img/flavicon.ico" type="image/x-icon" />
         <ThemeModeScript />
       </head>
-      <body>
+      <body suppressHydrationWarning={true} className={twMerge("bg-gray-50 dark:bg-gray-900", inter.className)}>
         <Flowbite theme={{theme: flowbiteTheme}}>{children}</Flowbite>
       </body>
     </html>

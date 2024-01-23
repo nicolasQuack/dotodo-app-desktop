@@ -3,14 +3,13 @@ import { Table, Dropdown, TextInput } from "flowbite-react";
 import { FaClock, FaXmark } from "react-icons/fa6";
 import { FaSearch, FaCheck, FaPlus } from "react-icons/fa";
 
-
-
 const DropdownExample: FC = function () {
     return (
         <Dropdown
             label="Last 30 days"
             size="sm"
             color="bg"
+            className="transition-colors duration-700"
         >
             <Dropdown.Item>
                 Last day
@@ -35,7 +34,7 @@ const SearchBarExample: FC = function () {
     return (
         <div>
             <TextInput
-                className="shadow-md rounded-lg border-none"
+                className="shadow-md rounded-lg border-none transition-colors duration-700"
                 shadow={true}
                 placeholder={`Pesquisar por items`}
                 icon={FaSearch}
@@ -46,7 +45,7 @@ const SearchBarExample: FC = function () {
 
 export const TableExample: FC = function () {
     return (
-        <div>
+        <div className="transition-colors duration-700">
             <div className=" grid grid-flow-col grid-cols-5 gap-x-6 pb-6">
                 <div className="col-start-1 col-end-6">
                     <SearchBarExample />
@@ -55,7 +54,9 @@ export const TableExample: FC = function () {
                     <DropdownExample />
                 </div>
             </div>
-            <TableStyleExample />
+            <div className="pb-6">
+                <TableStyleExample />
+            </div>
         </div>
     )
 }
@@ -63,28 +64,46 @@ export const TableExample: FC = function () {
 const TableStyleExample: FC = function () {
     return (
         <div 
-        className="relative overflow-x-auto rounded-lg"
+        className="relative overflow-x-auto shadow-md rounded-lg sm:rounded-lg"
         >
             <Table
             hoverable={false}
             striped={true}
-            className="flex"
             >
-                <Table.Head>
-                    <Table.HeadCell>
+                <Table.Head className="text-white">
+                    <Table.HeadCell className="bg-orange-300 transition-colors duration-700">
+                        <span className="sr-only">Edit</span>
+                        
+                    </Table.HeadCell>
+                    <Table.HeadCell className="bg-orange-300 transition-colors duration-700">
                         Tarefa
                     </Table.HeadCell>
-                    <Table.HeadCell>
+                    <Table.HeadCell className="bg-orange-300 transition-colors duration-700">
                         Data
                     </Table.HeadCell>
-                    <Table.HeadCell>
-                        Status
-                    </Table.HeadCell>
-                    <Table.HeadCell>
-                        <span className="sr-only">Edit</span>
-                        Editar
-                    </Table.HeadCell>
                 </Table.Head>
+                <Table.Body>
+                    <Table.Row className="transition-colors duration-700">
+                        <Table.Cell>
+                            <div className="flex pl-3 gap-6">
+                            <button className="bg-green-600 hover:animate-pulse rounded-lg p-3 text-white">
+                                <FaCheck />
+                            </button>
+                            <button className="bg-red-700 hover:animate-pulse rounded-lg p-3 ">
+                                <div className="rotate-45 text-white">
+                                    <FaPlus />
+                                </div>
+                            </button>
+                            </div>
+                        </Table.Cell>
+                        <Table.Cell className="text-nowrap">
+                            Regar a planta
+                        </Table.Cell>
+                        <Table.Cell className="text-nowrap">
+                            23/01/2024
+                        </Table.Cell>
+                    </Table.Row>
+                </Table.Body>
             </Table>
         </div>
         )
