@@ -4,8 +4,8 @@ import { NextPage } from "next"
 import Image from "next/image"
 import type { FC } from "react";
 import React, { useState } from "react";
-import { AlertExample } from "../ui/alert";
-import { InputExample } from "../ui/input";
+import { AlertExample } from "./alert";
+import { InputExample } from "./input"
 import { TableExample } from "./table";
 import { CardExample } from "./cards";
 
