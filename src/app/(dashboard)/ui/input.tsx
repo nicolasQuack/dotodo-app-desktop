@@ -6,7 +6,7 @@ export const InputExample: FC = function() {
     return (
         <div className={`${inter.className}`}>
             <TextInput
-            className="shadow-md rounded-lg border-none"
+            className="shadow-md rounded-lg border-none transition-colors duration-700"
             shadow={true}
             sizing="md"
             placeholder={`Qual é sua tarefa hoje?`}
