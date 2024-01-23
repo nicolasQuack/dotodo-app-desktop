@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { TextInput } from "flowbite-react";
-import { inter, pacifico } from "@/app/utils/fonts";
-import { Key } from "grommet-icons";
+import { inter } from "@/app/utils/fonts";
 
 export const InputExample: FC = function() {
     return (
