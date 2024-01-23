@@ -5,7 +5,7 @@ import { FaSignature } from "react-icons/fa";
 export const AlertExample: FC = function () {
     return (
         <Alert
-      className="opacity-95"
+      className="opacity-95 shadow-md"
       color="info"
       rounded={true}
       onDismiss={console.log}
