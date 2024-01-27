@@ -4,24 +4,26 @@ import type { FC, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 import { DashboardNavBar } from "./ui/navbar";
 import { DashboardSideBar } from "./ui/sidebar";
-import { SidebarProvider, useSidebarContext } from "../../../context/sidebar-context";
+import { SidebarProvider, useSidebarContext, TodosProvider } from "../../../context";
 
-const DashboardLayout: FC<PropsWithChildren> = function ({children}) {
+const DashboardLayout: FC<PropsWithChildren> = function ({ children }) {
   return (
-      <SidebarProvider>
+    <SidebarProvider>
+      <TodosProvider>
         <DashboardLayoutContent>{children}</DashboardLayoutContent>
-      </SidebarProvider>
-    )
+      </TodosProvider>
+    </SidebarProvider>
+  )
 }
 
-const DashboardLayoutContent: FC<PropsWithChildren> = function ({children}) {
-    const { isCollapsed } = useSidebarContext();
+const DashboardLayoutContent: FC<PropsWithChildren> = function ({ children }) {
+  const { isCollapsed } = useSidebarContext();
 
-    return (
-        <>
-            <DashboardNavBar />
-            <div className="mt-16 flex items-start">
-            <DashboardSideBar />
+  return (
+    <>
+      <DashboardNavBar />
+      <div className="mt-16 flex items-start">
+        <DashboardSideBar />
         <div
           id="main-content"
           className={twMerge(
@@ -32,8 +34,8 @@ const DashboardLayoutContent: FC<PropsWithChildren> = function ({children}) {
           {children}
         </div>
       </div>
-        </>
-        )
+    </>
+  )
 }
 
 export default DashboardLayout;
