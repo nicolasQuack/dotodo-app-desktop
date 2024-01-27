@@ -3,14 +3,18 @@ import { FaCheck, FaPlus } from 'react-icons/fa'
 import React from 'react'
 import { Task } from '../../../../@types'
 
-export const TaskCard = function ({
+interface TaskCardProps extends Task {
+    onDelete: () => void;
+}
 
+export const TaskCard = function ({
     id,
     description,
     createdAt,
     isCompleted,
+    onDelete
 
-}: Task) {
+}: TaskCardProps) {
 
     const formatedDate = new Date(createdAt).toLocaleDateString()
 
@@ -21,7 +25,7 @@ export const TaskCard = function ({
                     <button className="bg-green-600 hover:animate-pulse rounded-lg p-3 text-white">
                         <FaCheck />
                     </button>
-                    <button className="bg-red-700 hover:animate-pulse rounded-lg p-3 ">
+                    <button className="bg-red-700 hover:animate-pulse rounded-lg p-3" onClick={onDelete}>
                         <div className="rotate-45 text-white">
                             <FaPlus />
                         </div>

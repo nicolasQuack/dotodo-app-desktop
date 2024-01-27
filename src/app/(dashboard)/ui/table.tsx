@@ -66,7 +66,7 @@ export const TableExample: FC = function () {
 
 const TableStyleExample: FC = function () {
 
-    const { tasks } = useTodosContext();
+    const { tasks, deleteTask } = useTodosContext();
 
     return (
         <div
@@ -89,7 +89,7 @@ const TableStyleExample: FC = function () {
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body>
-                    {tasks.map((task) => <TaskCard key={task.id} {...task} />)}
+                    {tasks.map((task) => <TaskCard key={task.id} {...task} onDelete={() => deleteTask(task.id)} />)}
                 </Table.Body>
             </Table>
         </div>

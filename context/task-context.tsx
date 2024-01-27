@@ -7,6 +7,7 @@ import { uuid } from 'uuidv4';
 interface TodosProviderProps {
     tasks: Task[];
     createTask: (description: string) => void;
+    deleteTask: (id: string) => void;
 }
 
 const TodosContext = createContext<TodosProviderProps>({} as TodosProviderProps);
@@ -30,8 +31,16 @@ export const TodosProvider: FC<PropsWithChildren> = function ({ children }) {
         localStorage.setItem(TASKS_KEY, JSON.stringify(newTasks));
     }
 
+    function deleteTask(id: string) {
+        const filteredTasks = tasks.filter((task) => task.id !== id)
+
+        setTasks(filteredTasks);
+        localStorage.setItem(TASKS_KEY, JSON.stringify(filteredTasks));
+
+    }
+
     return (
-        <TodosContext.Provider value={{ tasks, createTask }}>
+        <TodosContext.Provider value={{ tasks, createTask, deleteTask }}>
             {children}
         </TodosContext.Provider>
     )
