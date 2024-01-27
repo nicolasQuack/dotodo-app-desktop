@@ -1,37 +1,8 @@
-import React, { FC, useState } from "react";
-import { Table, Dropdown, TextInput } from "flowbite-react";
+import React, { FC } from "react";
+import { Table, TextInput } from "flowbite-react";
 import { FaSearch } from "react-icons/fa";
 import { TaskCard } from "./taskCard";
 import { useTodosContext } from "../../../../context";
-
-const DropdownExample: FC = function () {
-    const [selected, setSelected] = useState("Last 30 days");
-
-    return (
-        <Dropdown
-            label={`${selected}`}
-            size="sm"
-            color="bg"
-            className="transition-colors duration-700"
-        >
-            <Dropdown.Item onClick={() => setSelected("Last day")}>
-                Last day
-            </Dropdown.Item >
-            <Dropdown.Item onClick={() => setSelected("Last 7 days")}>
-                Last 7 days
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => setSelected("Last 30 days")}>
-                Last 30 days
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => setSelected("Last month")}>
-                Last month
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => setSelected("Last year")}>
-                Last year
-            </Dropdown.Item>
-        </Dropdown>
-    )
-}
 
 const SearchBarExample: FC = function () {
     return (
@@ -53,9 +24,6 @@ export const TableExample: FC = function () {
                 <div className="col-start-1 col-end-6">
                     <SearchBarExample />
                 </div>
-                <div className="flex bg-blue-500 border shadow-md rounded-lg text-white dark:bg-white dark:text-blue-500 hover:bg-blue-600 dark:hover:bg-blue-600 dark:hover:text-white">
-                    <DropdownExample />
-                </div>
             </div>
             <div className="pb-6">
                 <TableStyleExample />
@@ -70,7 +38,7 @@ const TableStyleExample: FC = function () {
 
     return (
         <div
-            className="relative overflow-x-auto shadow-md rounded-lg sm:rounded-lg"
+            className="relative overflow-hidden shadow-md rounded-lg sm:rounded-lg"
         >
             <Table
                 hoverable={false}
