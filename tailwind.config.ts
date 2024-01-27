@@ -26,7 +26,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [flowbite],
+  plugins: [
+    flowbite
+  ],
 };
 
 export default config;
