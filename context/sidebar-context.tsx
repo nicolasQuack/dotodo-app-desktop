@@ -19,7 +19,7 @@ export const SidebarProvider: FC<PropsWithChildren> = function ({children}) {
 
     const [isCollapsed, setCollapsed] = useState(storedIsCollapsed);
 
-    useEffect(()=> {
+    useEffect(() => {
         if (isSmallScreen()) {
             setCollapsed(true);
         }

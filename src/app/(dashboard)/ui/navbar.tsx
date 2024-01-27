@@ -42,7 +42,7 @@ export const DashboardNavBar: FC<Record<string, never>> = function () {
                 </span>
               </Navbar.Brand>
             </div>
-            <DarkThemeToggle className="transition-color duration-500"/>
+            <DarkThemeToggle className="transition-color duration-500" />
           </div>
         </div>
       </Navbar>
