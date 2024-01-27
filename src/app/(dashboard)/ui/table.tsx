@@ -1,28 +1,15 @@
 import React, { FC } from "react";
-import { Table, TextInput } from "flowbite-react";
-import { FaSearch } from "react-icons/fa";
+import { Table } from "flowbite-react";
 import { TaskCard } from "./taskCard";
 import { useTodosContext } from "../../../../context";
-
-const SearchBarExample: FC = function () {
-    return (
-        <div>
-            <TextInput
-                className="shadow-md rounded-lg border-none transition-colors duration-700"
-                shadow={true}
-                placeholder={`Pesquisar por items`}
-                icon={FaSearch}
-            />
-        </div>
-    )
-}
+import { SearchBar } from "./searchBar"
 
 export const TableExample: FC = function () {
     return (
         <div className="transition-colors duration-700">
             <div className=" grid grid-flow-col grid-cols-5 gap-x-6 pb-6">
                 <div className="col-start-1 col-end-6">
-                    <SearchBarExample />
+                    <SearchBar />
                 </div>
             </div>
             <div className="pb-6">
@@ -34,7 +21,9 @@ export const TableExample: FC = function () {
 
 const TableStyleExample: FC = function () {
 
-    const { tasks, deleteTask, handleTaskComplete } = useTodosContext();
+    const { tasks, deleteTask, handleTaskComplete,searchText,filteredTasks} = useTodosContext();
+
+    const myTasks = searchText === ""? tasks : filteredTasks
 
     return (
         <div
@@ -57,7 +46,7 @@ const TableStyleExample: FC = function () {
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body>
-                    {tasks.map((task) => <TaskCard key={task.id} {...task} onDelete={() => deleteTask(task.id)} handleComplete={() => handleTaskComplete(task.id)} />)}
+                    {myTasks.map((task) => <TaskCard key={task.id} {...task} onDelete={() => deleteTask(task.id)} handleComplete={() => handleTaskComplete(task.id)} />)}
                 </Table.Body>
             </Table>
         </div>
