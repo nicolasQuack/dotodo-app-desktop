@@ -14,7 +14,7 @@ export const TodosProvider: FC<PropsWithChildren> = function ({ children }) {
 
     return (
         <TodosContext.Provider value={{ tasks }}>
-
+            {children}
         </TodosContext.Provider>
     )
 
