@@ -3,9 +3,14 @@ import { TextInput } from "flowbite-react";
 import { FaSearch } from "react-icons/fa";
 import { useTodosContext } from "../../../../context";
 
-export const SearchBar: FC = function () {
+interface SearchBarProps {
+    searchText: string;
+    setSearchText: (text: string) => void
+}
 
-    const { searchText, setSearchText, searchTasks } = useTodosContext()
+export const SearchBar: FC<SearchBarProps> = function ({ searchText, setSearchText }) {
+
+    const { searchTasks } = useTodosContext()
 
     return (
         <div>

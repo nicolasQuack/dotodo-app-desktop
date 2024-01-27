@@ -1,29 +1,35 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Table } from "flowbite-react";
 import { TaskCard } from "./taskCard";
 import { useTodosContext } from "../../../../context";
 import { SearchBar } from "./searchBar"
 
+interface TableStyleProps {
+    searchText: string;
+}
+
 export const TableExample: FC = function () {
+    const [searchText, setSearchText] = useState("");
+
     return (
         <div className="transition-colors duration-700">
             <div className=" grid grid-flow-col grid-cols-5 gap-x-6 pb-6">
                 <div className="col-start-1 col-end-6">
-                    <SearchBar />
+                    <SearchBar searchText={searchText} setSearchText={setSearchText} />
                 </div>
             </div>
             <div className="pb-6">
-                <TableStyleExample />
+                <TableStyleExample searchText={searchText} />
             </div>
         </div>
     )
 }
 
-const TableStyleExample: FC = function () {
+const TableStyleExample: FC<TableStyleProps> = function ({ searchText }) {
 
-    const { tasks, deleteTask, handleTaskComplete,searchText,filteredTasks} = useTodosContext();
+    const { tasks, deleteTask, handleTaskComplete, filteredTasks } = useTodosContext();
 
-    const myTasks = searchText === ""? tasks : filteredTasks
+    const myTasks = searchText === "" ? tasks : filteredTasks
 
     return (
         <div

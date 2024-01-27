@@ -11,8 +11,6 @@ interface TodosProviderProps {
     handleTaskComplete: (id: string) => void;
     filteredTasks: Task[];
     searchTasks: (text: string) => void;
-    searchText: string;
-    setSearchText: (text: string) => void;
 }
 
 const TodosContext = createContext<TodosProviderProps>({} as TodosProviderProps);
@@ -22,7 +20,6 @@ const TASKS_KEY = "@dotodo/tasks"
 export const TodosProvider: FC<PropsWithChildren> = function ({ children }) {
     const [tasks, setTasks] = useState<Task[]>([])
     const [filteredTasks, setFilteredTasks] = useState<Task[]>([])
-    const [searchText, setSearchText] = useState("")
 
     useEffect(() => {
         const tasks = localStorage.getItem(TASKS_KEY) || "[]";
@@ -62,7 +59,7 @@ export const TodosProvider: FC<PropsWithChildren> = function ({ children }) {
     }
 
     return (
-        <TodosContext.Provider value={{ tasks, createTask, deleteTask, handleTaskComplete, filteredTasks, searchTasks, searchText, setSearchText }}>
+        <TodosContext.Provider value={{ tasks, createTask, deleteTask, handleTaskComplete, filteredTasks, searchTasks, }}>
             {children}
         </TodosContext.Provider>
     )
