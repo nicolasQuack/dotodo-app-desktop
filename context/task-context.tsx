@@ -8,6 +8,7 @@ interface TodosProviderProps {
     tasks: Task[];
     createTask: (description: string) => void;
     deleteTask: (id: string) => void;
+    handleTaskComplete: (id: string) => void;
 }
 
 const TodosContext = createContext<TodosProviderProps>({} as TodosProviderProps);
@@ -39,8 +40,19 @@ export const TodosProvider: FC<PropsWithChildren> = function ({ children }) {
 
     }
 
+    function handleTaskComplete(id: string) {
+        const taskIndex = tasks.findIndex((task) => task.id === id);
+        const oldTask = tasks[taskIndex];
+
+        let tasksCopy = [...tasks];
+        tasksCopy[taskIndex] = { ...oldTask, isCompleted: !oldTask.isCompleted };
+        setTasks(tasksCopy)
+        localStorage.setItem(TASKS_KEY, JSON.stringify(tasksCopy));
+
+    }
+
     return (
-        <TodosContext.Provider value={{ tasks, createTask, deleteTask }}>
+        <TodosContext.Provider value={{ tasks, createTask, deleteTask, handleTaskComplete }}>
             {children}
         </TodosContext.Provider>
     )

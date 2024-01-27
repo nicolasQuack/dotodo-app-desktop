@@ -1,10 +1,12 @@
 import { Table } from 'flowbite-react'
-import { FaCheck, FaPlus } from 'react-icons/fa'
+import { twMerge } from 'tailwind-merge';
+import { FaCheck, FaPlus, FaMinus } from 'react-icons/fa'
 import React from 'react'
 import { Task } from '../../../../@types'
 
 interface TaskCardProps extends Task {
     onDelete: () => void;
+    handleComplete: () => void;
 }
 
 export const TaskCard = function ({
@@ -12,7 +14,8 @@ export const TaskCard = function ({
     description,
     createdAt,
     isCompleted,
-    onDelete
+    onDelete,
+    handleComplete
 
 }: TaskCardProps) {
 
@@ -22,10 +25,10 @@ export const TaskCard = function ({
         <Table.Row className="transition-colors duration-700">
             <Table.Cell>
                 <div className="flex pl-3 gap-6">
-                    <button className="bg-green-600 hover:animate-pulse rounded-lg p-3 text-white">
-                        <FaCheck />
+                    <button onClick={handleComplete} className={twMerge("duration-1000 hover:animate-pulse rounded-lg p-3 text-white", isCompleted ? "bg-yellow-400" : "bg-green-600")}>
+                        {isCompleted ? <FaMinus /> : <FaCheck />}
                     </button>
-                    <button className="bg-red-700 hover:animate-pulse rounded-lg p-3" onClick={onDelete}>
+                    <button onClick={onDelete} className="bg-red-700 hover:animate-pulse rounded-lg p-3" >
                         <div className="rotate-45 text-white">
                             <FaPlus />
                         </div>
