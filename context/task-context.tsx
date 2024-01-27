@@ -2,6 +2,7 @@
 
 import { FC, createContext, PropsWithChildren, useState, useContext, useEffect } from "react";
 import { Task } from "../@types";
+import { uuid } from 'uuidv4';
 
 interface TodosProviderProps {
     tasks: Task[];
@@ -23,7 +24,7 @@ export const TodosProvider: FC<PropsWithChildren> = function ({ children }) {
     }, [])
 
     function createTask(description: string) {
-        const task: Task = { description, createdAt: new Date(), isCompleted: false };
+        const task: Task = { id: uuid(), description, createdAt: new Date(), isCompleted: false };
         const newTasks = [...tasks, task];
         setTasks(newTasks);
         localStorage.setItem(TASKS_KEY, JSON.stringify(newTasks));
