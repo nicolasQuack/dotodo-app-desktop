@@ -2,28 +2,33 @@ import React, { FC, ComponentProps } from "react";
 import { Table, Dropdown, TextInput } from "flowbite-react";
 import { FaClock, FaXmark } from "react-icons/fa6";
 import { FaSearch, FaCheck, FaPlus } from "react-icons/fa";
+import { useState } from "react";
 
 const DropdownExample: FC = function () {
+    const [selected, setSelected] = useState("Last 30 days");
+    const [selectedState, setSelectedState] = useState(false);
+
     return (
         <Dropdown
-            label="Last 30 days"
+            label={`${selected}`}
             size="sm"
             color="bg"
             className="transition-colors duration-700"
+            onClick={() => setSelectedState((prev) => !prev)}
         >
-            <Dropdown.Item>
+            <Dropdown.Item onClick={() => setSelected("Last day")}>
                 Last day
-            </Dropdown.Item>
-            <Dropdown.Item>
+            </Dropdown.Item >
+            <Dropdown.Item onClick={() => setSelected("Last 7 days")}>
                 Last 7 days
             </Dropdown.Item>
-            <Dropdown.Item>
+            <Dropdown.Item onClick={() => setSelected("Last 30 days")}>
                 Last 30 days
             </Dropdown.Item>
-            <Dropdown.Item>
+            <Dropdown.Item onClick={() => setSelected("Last month")}>
                 Last month
             </Dropdown.Item>
-            <Dropdown.Item>
+            <Dropdown.Item onClick={() => setSelected("Last year")}>
                 Last year
             </Dropdown.Item>
         </Dropdown>
@@ -63,17 +68,17 @@ export const TableExample: FC = function () {
 
 const TableStyleExample: FC = function () {
     return (
-        <div 
-        className="relative overflow-x-auto shadow-md rounded-lg sm:rounded-lg"
+        <div
+            className="relative overflow-x-auto shadow-md rounded-lg sm:rounded-lg"
         >
             <Table
-            hoverable={false}
-            striped={true}
+                hoverable={false}
+                striped={true}
             >
                 <Table.Head className="text-white">
                     <Table.HeadCell className="bg-orange-300 transition-colors duration-700">
                         <span className="sr-only">Edit</span>
-                        
+
                     </Table.HeadCell>
                     <Table.HeadCell className="bg-orange-300 transition-colors duration-700">
                         Tarefa
@@ -86,14 +91,14 @@ const TableStyleExample: FC = function () {
                     <Table.Row className="transition-colors duration-700">
                         <Table.Cell>
                             <div className="flex pl-3 gap-6">
-                            <button className="bg-green-600 hover:animate-pulse rounded-lg p-3 text-white">
-                                <FaCheck />
-                            </button>
-                            <button className="bg-red-700 hover:animate-pulse rounded-lg p-3 ">
-                                <div className="rotate-45 text-white">
-                                    <FaPlus />
-                                </div>
-                            </button>
+                                <button className="bg-green-600 hover:animate-pulse rounded-lg p-3 text-white">
+                                    <FaCheck />
+                                </button>
+                                <button className="bg-red-700 hover:animate-pulse rounded-lg p-3 ">
+                                    <div className="rotate-45 text-white">
+                                        <FaPlus />
+                                    </div>
+                                </button>
                             </div>
                         </Table.Cell>
                         <Table.Cell className="text-nowrap">
@@ -106,6 +111,6 @@ const TableStyleExample: FC = function () {
                 </Table.Body>
             </Table>
         </div>
-        )
+    )
 }
 
