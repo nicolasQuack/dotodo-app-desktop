@@ -13,6 +13,7 @@ export const InputExample: FC = function () {
             <form onSubmit={(e) => {
                 e.preventDefault();
                 createTask(text);
+                setText("")
             }}>
                 <TextInput
                     type="text"
