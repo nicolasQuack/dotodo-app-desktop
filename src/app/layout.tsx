@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const RootLayout: FC<PropsWithChildren> = function ({children}) {
   return (
-    <html lang='en' suppressHydrationWarning={true} >
+    <html lang='pt-br' suppressHydrationWarning={true} >
       <head>
         <link rel="shortcut icon" href="/img/flavicon.ico" type="image/x-icon" />
         <ThemeModeScript />

@@ -27,7 +27,7 @@ export const DashboardSideBar: FC = function () {
             LinkedIn
           </Sidebar.Item>
           <Sidebar.Item target="_blank" href="https://www.instagram.com/nicolas_f_felipe/" icon={FaInstagram}>
-            GitHub
+            Instagram
           </Sidebar.Item>
         </Sidebar.ItemGroup>
       </SidebarItems>

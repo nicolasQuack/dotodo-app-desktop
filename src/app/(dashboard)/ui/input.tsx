@@ -1,16 +1,33 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { TextInput } from "flowbite-react";
 import { inter } from "@/app/utils/fonts";
+import { useTodosContext } from "../../../../context";
 
-export const InputExample: FC = function() {
+export const InputExample: FC = function () {
+    const { createTask } = useTodosContext();
+
+    const [text, setText] = useState("");
+
     return (
         <div className={`${inter.className}`}>
-            <TextInput
-            className="shadow-md rounded-lg border-none transition-colors duration-700"
-            shadow={true}
-            sizing="md"
-            placeholder={`Qual é sua tarefa hoje?`}
-        />
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                createTask(text);
+                setText("")
+            }}>
+                <TextInput
+                    type="text"
+                    onChange={(e) => {
+                        setText(e.target.value);
+                    }}
+                    value={text}
+                    name="taskInput"
+                    className="shadow-md rounded-lg border-none transition-colors duration-700"
+                    shadow={true}
+                    sizing="md"
+                    placeholder={`Qual é sua tarefa hoje?`}
+                />
+            </form>
         </div>
-        )
+    )
 }

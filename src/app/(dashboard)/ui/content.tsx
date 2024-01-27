@@ -4,10 +4,8 @@ import { NextPage } from "next"
 import Image from "next/image"
 import type { FC } from "react";
 import React, { useState } from "react";
-import { AlertExample } from "./alert";
 import { InputExample } from "./input";
 import { TableExample } from "./table";
-import { CardExample } from "./cards";
 import { useSidebarContext } from "../../../../context/sidebar-context";
 import { twMerge } from "tailwind-merge";
 
@@ -18,9 +16,6 @@ export const HomePageContent: NextPage = function () {
 
     return (
         <div className={twMerge("p-6 h-screen", isCollapsed ? "aria-disabled: true" : "aria-disabled:true")}>
-            <section className="pb-6">
-                <AlertExample />
-            </section>
             <section>
                 <div className="pb-6 ">
                     <InputExample />
