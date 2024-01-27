@@ -1,12 +1,11 @@
-import React, { FC, ComponentProps } from "react";
+import React, { FC, useState } from "react";
 import { Table, Dropdown, TextInput } from "flowbite-react";
-import { FaClock, FaXmark } from "react-icons/fa6";
-import { FaSearch, FaCheck, FaPlus } from "react-icons/fa";
-import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import { TaskCard } from "./taskCard";
+import { useTodosContext } from "../../../../context";
 
 const DropdownExample: FC = function () {
     const [selected, setSelected] = useState("Last 30 days");
-    const [selectedState, setSelectedState] = useState(false);
 
     return (
         <Dropdown
@@ -14,7 +13,6 @@ const DropdownExample: FC = function () {
             size="sm"
             color="bg"
             className="transition-colors duration-700"
-            onClick={() => setSelectedState((prev) => !prev)}
         >
             <Dropdown.Item onClick={() => setSelected("Last day")}>
                 Last day
@@ -67,6 +65,9 @@ export const TableExample: FC = function () {
 }
 
 const TableStyleExample: FC = function () {
+
+    const { tasks } = useTodosContext();
+
     return (
         <div
             className="relative overflow-x-auto shadow-md rounded-lg sm:rounded-lg"
@@ -88,26 +89,7 @@ const TableStyleExample: FC = function () {
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body>
-                    <Table.Row className="transition-colors duration-700">
-                        <Table.Cell>
-                            <div className="flex pl-3 gap-6">
-                                <button className="bg-green-600 hover:animate-pulse rounded-lg p-3 text-white">
-                                    <FaCheck />
-                                </button>
-                                <button className="bg-red-700 hover:animate-pulse rounded-lg p-3 ">
-                                    <div className="rotate-45 text-white">
-                                        <FaPlus />
-                                    </div>
-                                </button>
-                            </div>
-                        </Table.Cell>
-                        <Table.Cell className="text-nowrap">
-                            Regar a planta
-                        </Table.Cell>
-                        <Table.Cell className="text-nowrap">
-                            23/01/2024
-                        </Table.Cell>
-                    </Table.Row>
+                    {tasks.map((task) => <TaskCard key={task.id} {...task} />)}
                 </Table.Body>
             </Table>
         </div>
