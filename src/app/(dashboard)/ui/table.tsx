@@ -33,7 +33,7 @@ const TableStyleExample: FC<TableStyleProps> = function ({ searchText }) {
 
     return (
         <div
-            className="relative overflow-hidden shadow-md rounded-lg sm:rounded-lg"
+            className="relative overflow-x-auto shadow-md rounded-lg sm:rounded-lg"
         >
             <Table
                 hoverable={false}
