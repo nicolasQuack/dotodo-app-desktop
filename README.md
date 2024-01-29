@@ -26,3 +26,10 @@ Rodando o projeto localmente:
   npm start
 ```
 
+## Features
+
+- Dark/Light mode com base nas preferencias do usuário.
+- Adicionar/Listar/Remover/Completar tasks.
+- Pesquisar por tasks.
+- Sidebar.
+
