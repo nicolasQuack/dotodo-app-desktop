@@ -22,10 +22,10 @@ export const TaskCard = function ({
     const formatedDate = new Date(createdAt).toLocaleDateString()
 
     return (
-        <Table.Row className="transition-colors duration-700">
-            <Table.Cell>
+        <Table.Row className={twMerge("text-nowrap transition-colors duration-700", isCompleted ? "duration-1000 text-green-400 dark:text-green-600" : "duration-700")} >
+            <Table.Cell >
                 <div className="flex pl-3 gap-6">
-                    <button onClick={handleComplete} className={twMerge("duration-1000 hover:animate-pulse rounded-lg p-3 text-white", isCompleted ? "bg-yellow-400" : "bg-green-600")}>
+                    <button onClick={handleComplete} className={twMerge("duration-1000 hover:animate-pulse rounded-lg p-3 text-white", isCompleted ? "bg-yellow-400" : "bg-green-400 dark:bg-green-600")}>
                         {isCompleted ? <FaMinus /> : <FaCheck />}
                     </button>
                     <button onClick={onDelete} className="bg-red-700 hover:animate-pulse rounded-lg p-3" >
@@ -35,12 +35,12 @@ export const TaskCard = function ({
                     </button>
                 </div>
             </Table.Cell>
-            <Table.Cell className="text-nowrap">
+            <Table.Cell>
                 {description}
             </Table.Cell>
             <Table.Cell className="text-nowrap">
                 {formatedDate}
             </Table.Cell>
-        </Table.Row>
+        </Table.Row >
     )
 }
