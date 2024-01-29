@@ -1,4 +1,4 @@
-import { HomePageContent } from "./ui/content";
+import { HomePageContent } from "./components/Content";
 
 export default function HomePage() {
     return <HomePageContent />

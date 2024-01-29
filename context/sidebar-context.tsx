@@ -10,10 +10,10 @@ interface SidebarContextProps {
     setCollapsed: (isOpen: boolean) => void;
 }
 
-const SidebarContext = createContext<SidebarContextProps>( {} as SidebarContextProps);
+const SidebarContext = createContext<SidebarContextProps>({} as SidebarContextProps);
 
-export const SidebarProvider: FC<PropsWithChildren> = function ({children}) {
-    
+export const SidebarProvider: FC<PropsWithChildren> = function ({ children }) {
+
     const location = isBrowser() ? window.location.pathname : "/";
     const storedIsCollapsed = isBrowser() ? localStorage.getItem("isSidebarCollapsed") === "true" : false;
 
@@ -48,11 +48,11 @@ export const SidebarProvider: FC<PropsWithChildren> = function ({children}) {
 
     return (
         <SidebarContext.Provider
-            value={{isCollapsed, setCollapsed}}
+            value={{ isCollapsed, setCollapsed }}
         >
             {children}
         </SidebarContext.Provider>
-        );
+    );
 };
 
 export function useSidebarContext(): SidebarContextProps {
@@ -60,8 +60,8 @@ export function useSidebarContext(): SidebarContextProps {
 
     if (typeof context === "undefined") {
         throw new Error(
-            "useSidebarContext should be used within the SidebarContext provider!",
-            );
+            "useSidebarContext deve estar inserido dentro de um SidebarContext provider!",
+        );
     }
 
     return context;

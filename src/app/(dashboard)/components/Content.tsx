@@ -2,10 +2,9 @@
 
 import { NextPage } from "next"
 import Image from "next/image"
-import type { FC } from "react";
-import React, { useState } from "react";
-import { InputExample } from "./input";
-import { TableExample } from "./table";
+import React from "react";
+import { InputExample } from "./Input";
+import { TableExample } from "./Table";
 import { useSidebarContext } from "../../../../context/sidebar-context";
 import { twMerge } from "tailwind-merge";
 
@@ -30,7 +29,7 @@ export const HomePageContent: NextPage = function () {
                 </div>
             </section>
             <section className="">
-                    <TableExample />
+                <TableExample />
             </section>
         </div>
     )
