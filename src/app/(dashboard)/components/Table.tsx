@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
 import { Table } from "flowbite-react";
-import { TaskCard } from "./taskCard";
+import { TaskCard } from "./TaskCard";
 import { useTodosContext } from "../../../../context";
-import { SearchBar } from "./searchBar"
+import { SearchBar } from "./SearchBar"
 
 interface TableStyleProps {
     searchText: string;

@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { TextInput } from "flowbite-react";
-import { inter } from "@/app/utils/fonts";
+import { inter } from "../../../../public/fonts/fonts";
 import { useTodosContext } from "../../../../context";
 
 export const InputExample: FC = function () {

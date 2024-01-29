@@ -1,4 +1,4 @@
-import { pacifico } from "@/app/utils/fonts";
+import { pacifico } from "../../../../public/fonts/fonts";
 import { useSidebarContext } from "../../../../context/sidebar-context";
 import { isSmallScreen } from "../../../../helpers/is-small-screen";
 import { DarkThemeToggle, Navbar } from "flowbite-react";

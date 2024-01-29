@@ -1,7 +1,6 @@
 import { useSidebarContext } from "../../../../context/sidebar-context";
 import { Sidebar, SidebarItems } from "flowbite-react";
 import type { FC } from "react";
-import { BiBuoy } from "react-icons/bi";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 
