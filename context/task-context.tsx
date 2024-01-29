@@ -71,7 +71,7 @@ export function useTodosContext(): TodosProviderProps {
 
     if (typeof context === "undefined") {
         throw new Error(
-            "useTodosContext should be used within the SidebarContext provider!",
+            "useTodosContext deve estar inserido dentro de um TodosContext provider!",
         );
     }
 
